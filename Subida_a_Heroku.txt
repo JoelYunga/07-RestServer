@@ -1,0 +1,6 @@
+## Subir la app a Heroku
+
+ * heroku login
+ * heroku create
+ * git remote -v
+
