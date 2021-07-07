@@ -3,4 +3,6 @@
  * heroku login
  * heroku create
  * git remote -v
-
+ * Configurar el archivo package.json y poner el start "node server.js"
+ * subir al github
+ * git push heroku main
