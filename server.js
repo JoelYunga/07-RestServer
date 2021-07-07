@@ -1,35 +1,20 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
 require("./server/config");
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/usuario', function(req, res) {
-    res.json('get Usuario');
-});
+app.use(require('./server/routers/usuario'));
 
-app.put('/usuario', (req, res) => {
-    let body = req.body;
-    if (body.nombre === undefined) {
-        res.status(400).json({
-            ok: false,
-            mensaje: "El nombre es requerido"
-        })
-    } else {
-        res.json({
-            persona: body
-        });
-    }
+mongoose.connect(
+    'mongodb://localhost:27017/Cafe', { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true },
+    (err, res) => {
+        if (err) throw err;
 
-});
-
-app.post('/usuario', function(req, res) {
-    res.json('post Usuario');
-});
-
-app.delete('/usuario', function(req, res) {
-    res.json('delete Usuario');
-});
+        console.log("Base de datos ONLINE!");
+    });
 
 app.listen(process.env.PORT, () => {
     console.log("Escuchando en el puerto: ", process.env.PORT);
