@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(require('./server/routers/usuario'));
 
 mongoose.connect(
-    'mongodb://localhost:27017/Cafe', { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true },
+    process.env.URLDB, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },
     (err, res) => {
         if (err) throw err;
 
