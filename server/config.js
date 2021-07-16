@@ -17,7 +17,4 @@ if (process.env.NODE_ENV == "dev") {
     urlDB = process.env.BDD_URL;
 }
 
-
-
-'mongodb+srv://admin:joel1705@leviatan.kd7nu.mongodb.net/Cafe?retryWrites=true&w=majority'
 process.env.URLDB = urlDB;
